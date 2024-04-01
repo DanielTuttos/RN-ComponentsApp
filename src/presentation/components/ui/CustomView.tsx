@@ -5,8 +5,18 @@ import {ReactNode} from 'react';
 interface Props {
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
+  margin?: boolean;
 }
 
-export const CustomView = ({style, children}: Props) => {
-  return <View style={[globalStyles.mainContainer, style]}>{children}</View>;
+export const CustomView = ({style, children, margin}: Props) => {
+  return (
+    <View
+      style={[
+        globalStyles.mainContainer,
+        style,
+        margin && globalStyles.globalMargin,
+      ]}>
+      {children}
+    </View>
+  );
 };
